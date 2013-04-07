@@ -1,6 +1,6 @@
 # lein-nix
 
-A leiningen plugin that contributes an arsenal of composable, *small-is-beautiful* tasks with the intent to replace bundling/deployment shell scripts with leiningen's aliases.
+A leiningen plugin that contributes an arsenal of composable, *small-is-beautiful* tasks with the intent to replace bundling/deployment shell scripts.
 
 ## Usage
 
