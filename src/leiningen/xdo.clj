@@ -1,4 +1,4 @@
-(ns leiningen.pdo
+(ns leiningen.xdo
   (:require [leiningen.core.main
              :refer [resolve-task task-args resolve-and-apply]]
             [leiningen.do :refer [group-args]]))
@@ -14,12 +14,12 @@
                                        (resolve-task (constantly nil))
                                        meta :higher-order))
 
-(defn ^:no-project-needed ^:higher-order pdo
+(defn ^:no-project-needed ^:higher-order xdo
   "Higher-order task to perform other tasks in succession.
 
 Each comma-separated group should be a task name followed by optional arguments.
 
-USAGE: lein pdo test, compile :all, deploy private-repo"
+USAGE: lein xdo test, compile :all, deploy private-repo"
   [project & args]
   (reduce
    (fn [[project] [arg-group, :as groups]]
