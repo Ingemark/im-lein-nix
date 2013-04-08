@@ -1,4 +1,5 @@
-(ns leiningen.edit-version)
+(ns leiningen.edit-version
+  (require [clojure.string :as s]))
 
 (defn update-project! [project new-version]
   (when new-version

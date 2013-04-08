@@ -1,5 +1,6 @@
 (ns leiningen.upload
-  (require (leiningen [deploy :refer [repo-for]])
+  (require [lein-nix.core :refer [abort sh!]]
+           (leiningen [deploy :refer [repo-for]])
            [leiningen.core.main :as main]
            (clojure.java [shell :as sh] [io :as io])
            [clojure.string :as s]
@@ -10,14 +11,6 @@
           org.apache.maven.wagon.authentication.AuthenticationInfo))
 
 (set! *warn-on-reflection* true)
-
-(defn abort [fmt & args] (main/abort (apply format fmt args)))
-
-(defn sh! [& cmd]
-  (apply println "$" cmd)
-  (let [res (eval/sh cmd)]
-    (when-not (zero? res) (abort "Command failed with exit code %s: %s" res cmd))
-    res))
 
 #_
 (defn aether-deploy [project file]
