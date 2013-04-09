@@ -8,7 +8,7 @@ Put `[lein-nix "0.1.0"]` into the `:plugins` vector of your `~/.lein/profiles.cl
 
 Now you can issue a command such as
 ```
-lein xdo git-check-clean, \
+$ lein xdo git-check-clean, \
   thrush version-update :release, edit-version, \
   xdo deploy clojars, commit "New release", tag, \
   thrush version-update :new-snapshot, edit-version, \
