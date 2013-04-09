@@ -9,10 +9,10 @@
 Each comma-separated group should be a task name followed by optional arguments."
   [project & args]
   (reduce
-   (fn [[project r] [[task-name & args :as group] :as groups]]
+   (fn [[project & r] [[task-name & args :as group] :as groups]]
      (if (higher-order? project group)
        (reduced (resolve-and-apply project (ungroup groups)))
-       (->> (resolve-and-apply project (concat [task-name r] args))
+       (->> (resolve-and-apply project (concat [task-name] r args))
             (prj-result project))))
-   [project nil]
-   (iterate next (group-args args))))
+   [project]
+   (take-while (complement nil?) (iterate next (group-args args)))))

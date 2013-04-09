@@ -8,7 +8,10 @@
                                [project r]))
 
 (defn ungroup [groups]
-  (for [g groups] (update-in g [(dec (count g))] #(str % ","))))
+  (-> (for [g (drop-last groups)
+            :let [g (update-in g [(dec (count g))] #(str % ","))]
+            arg g] arg)
+      (concat (last groups))))
 
 (defn higher-order? [project args] (-> (task-args args project) first
                                        (resolve-task (constantly nil))
@@ -23,8 +26,8 @@ USAGE: lein xdo test, compile :all, deploy private-repo"
   [project & args]
   (reduce
    (fn [[project] [arg-group, :as groups]]
-     (if (higher-order? arg-group project)
+     (if (higher-order? project arg-group)
        (reduced (resolve-and-apply project (ungroup groups)))
        (->> (resolve-and-apply project arg-group) (prj-result project))))
    [project]
-   (iterate next (group-args args))))
+   (take-while (complement nil?) (iterate next (group-args args)))))
