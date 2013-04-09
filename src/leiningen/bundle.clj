@@ -20,7 +20,18 @@
                  canon-fname)
          Exception. throw))))
 
-(defn bundle [project & args]
+(defn bundle
+"Bundles the project into a .tgz archive, suitable for downloading by end-user.
+
+The files can be specified in (-> project :lein-bundle :filespec), either as
+individual strings or as [src dest] vectors. src will be renamed/moved
+to dest before archiving. dest may be a directory.
+
+The command line accepts the syntax src1 dest1 src2 dest2 ...
+
+At the end of the command line the option :dest-dir may be specified,
+followed by the destination directory for the .tgz file."
+  [project & args]
   (let [[fspec opt-map]
         (parse-opts (for [a args, a (if (map? a) (vals a) [a])] a))
         destdir-name (or (:dest-dir opt-map) ".")

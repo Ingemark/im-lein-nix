@@ -11,6 +11,10 @@
     (-> (assoc project :version new-version)
         (vary-meta assoc-in [:without-profiles :version] new-version))))
 
-(defn edit-version [project [curr-v new-v]]
+(defn edit-version
+"Updates the project version by editing project.clj.
+
+Required argument: a vector [curr-v new-v]"
+  [project [curr-v new-v]]
   (when-let [new-prj (update-project! project new-v)]
     ^:boxed-result {:result new-v, :project new-prj}))
