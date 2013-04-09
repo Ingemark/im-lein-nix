@@ -20,5 +20,7 @@
     (sh! "mkdir" "-p" checkout-dir)
     (try
       (sh! "sh" "-c" (format "git archive %s | tar -xC %s" tag checkout-dir))
-      (sh! "sh" "-c" (format "cd %s ; lein %s" checkout-dir (s/join " " args)))
+      (sh! "sh" "-c"
+           (format "cd %s ; %s %s" checkout-dir
+                   (System/getProperty "leiningen.script") (s/join " " args)))
       (finally (sh! "rm" "-rf" checkout-dir)))))
