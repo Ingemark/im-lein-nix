@@ -4,7 +4,7 @@ A leiningen plugin that contributes an arsenal of composable, *small-is-beautifu
 
 ## Usage
 
-Put `[lein-nix "0.1.0"]` into the `:plugins` vector of your `~/.lein/profiles.clj` or `project.clj`.
+Put `[lein-nix "0.1.2"]` into the `:plugins` vector of your `~/.lein/profiles.clj` or `project.clj`.
 
 Now you can issue a command such as
 ```
