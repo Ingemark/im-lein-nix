@@ -6,23 +6,14 @@ A leiningen plugin that contributes an arsenal of composable, *small-is-beautifu
 
 Put `[lein-nix "0.1.2"]` into the `:plugins` vector of your `~/.lein/profiles.clj` or `project.clj`.
 
-Now you can issue a command such as
-```
-$ lein xdo git-check-clean, \
-  thrush version-update :release, edit-version, \
-  xdo deploy clojars, commit "New release", tag, \
-  thrush version-update :new-snapshot, edit-version, \
-  xdo commit "New snapshot", push
-```
-or, better, define this as an alias in `project.clj`:
+The best way to use lein-nix is by defining aliases in `project.clj`:
 ```clojure
 (defproject ...
-  :aliases {"release"
-              ["xdo" "git-check-clean,"
-               "thrush" "version-update" ":release," "edit-version,"
-               "xdo" "deploy" "clojars," "commit" "New release," "tag,"
-               "thrush" "version-update" ":new-snapshot," "edit-version,"
-               "xdo" "commit" "New snapshot," "push"]})
+  :aliases {"to-release-version" ["thrush" "version-update" ":release," "edit-version"]
+            "to-snapshot" ["thrush" "version-update" ":new-snapshot," "edit-version"]
+            "release" ["xdo" "git-check-clean," "to-release-version,"
+                       "deploy" "clojars," "commit" "New release," "tag,"
+                       "to-snapshot," "commit" "New snapshot," "push"]})
 ```
 NOTE: `lein-nix` requires a still-unreleased version of Leiningen (it works against the current state of its `master` branch).
 
