@@ -4,9 +4,11 @@
             [lein-nix.core :refer [prj-result]]))
 
 (defn ^:no-project-needed ^:higher-order thrush
-  "Like ->, but for leiningen tasks.
+  "Like ->, but for leiningen tasks. Propagates changes to the project map.
 
-Each comma-separated group should be a task name followed by optional arguments."
+Each comma-separated group should be a task name followed by optional arguments.
+
+USAGE: lein thrush version-update :release, edit-version"
   [project & args]
   (with-meta
     (zipmap

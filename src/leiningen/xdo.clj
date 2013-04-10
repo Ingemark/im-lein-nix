@@ -5,7 +5,7 @@
             [lein-nix.core :refer [prj-result]]))
 
 (defn ^:no-project-needed ^:higher-order xdo
-  "Higher-order task to perform other tasks in succession.
+  "Just like the regular do, but propagates changes to the project map.
 
 Each comma-separated group should be a task name followed by optional arguments.
 
