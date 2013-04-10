@@ -8,9 +8,9 @@
 
 Each comma-separated group should be a task name followed by optional arguments."
   [project & args]
-  ^:boxed-result
-  (zipmap [:project :result]
-          (reduce (fn [[project & r] [task-name & args]]
-                    (->> (resolve-and-apply project (concat [task-name] r args))
-                         (prj-result project)))
-                  [project] (group-args args))))
+  (doto ^:boxed-result (zipmap [:project :result]
+                (reduce (fn [[project & r] [task-name & args]]
+                          (->> (resolve-and-apply project (concat [task-name] r args))
+                               (prj-result project)))
+                        [project] (group-args args)))
+    (println "thrush")))
