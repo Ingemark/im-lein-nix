@@ -28,12 +28,3 @@
                                ((juxt :project :result) r)
                                [project r]))
 
-(defn ungroup [groups]
-  (-> (for [g (drop-last groups)
-            :let [g (update-in g [(dec (count g))] #(str % ","))]
-            arg g] arg)
-      (concat (last groups))))
-
-(defn higher-order? [project args] (-> args first
-                                       (resolve-task (constantly nil))
-                                       meta :higher-order))

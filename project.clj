@@ -4,8 +4,8 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :eval-in :leiningen
-  :aliases {"release" ["xdo" "git-check-clean,"
-                       "thrush" "version-update" ":release," "edit-version,"
-                       "xdo" "deploy" "clojars," "commit" "New release," "tag,"
-                       "thrush" "version-update" ":new-snapshot," "edit-version,"
-                       "xdo" "commit" "New snapshot," "push"]})
+  :aliases {"to-release-version" ["thrush" "version-update" ":release," "edit-version"]
+            "to-snapshot" ["thrush" "version-update" ":new-snapshot," "edit-version"]
+            "release" ["xdo" "git-check-clean," "to-release-version,"
+                       "deploy" "clojars," "commit" "New release," "tag,"
+                       "to-snapshot," "commit" "New snapshot," "push"]})
