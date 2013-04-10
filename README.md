@@ -13,7 +13,9 @@ The best way to use lein-nix is by defining aliases in `project.clj`:
             "to-snapshot" ["thrush" "version-update" ":new-snapshot," "edit-version"]
             "release" ["xdo" "git-check-clean," "to-release-version,"
                        "deploy" "clojars," "commit" "New release," "tag,"
-                       "to-snapshot," "commit" "New snapshot," "push"]})
+                       "to-snapshot," "commit" "New snapshot," "push"]
+            "upload-bundle" ["thrush" "uberjar," "bundle" ".," "upload" "bundle"]
+            "publish-latest" ["with-checkout" ":latest" "upload-bundle"]})
 ```
 NOTE: `lein-nix` requires a still-unreleased version of Leiningen (it works against the current state of its `master` branch).
 
