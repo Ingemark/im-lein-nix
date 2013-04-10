@@ -4,7 +4,7 @@ A leiningen plugin that contributes an arsenal of composable, *small-is-beautifu
 
 ## Usage
 
-Put `[lein-nix "0.1.2"]` into the `:plugins` vector of your `~/.lein/profiles.clj` or `project.clj`.
+Put `[lein-nix "0.1.6"]` into the `:plugins` vector of your `~/.lein/profiles.clj` or `project.clj`.
 
 The best way to use lein-nix is by defining aliases in `project.clj`:
 ```clojure
