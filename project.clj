@@ -1,4 +1,4 @@
-(defproject lein-nix "0.1.6-SNAPSHOT-SNAPSHOT"
+(defproject lein-nix "0.1.6-SNAPSHOT"
   :description "An arsenal of composable bundling/deployment tasks"
   :url "https://github.com/Inge-mark/lein-nix"
   :license {:name "Eclipse Public License"
@@ -7,5 +7,5 @@
   :aliases {"to-release-version" ["thrush" "version-update" ":release," "edit-version"]
             "to-snapshot" ["thrush" "version-update" ":new-snapshot," "edit-version"]
             "release" ["xdo" "git-check-clean," "to-release-version,"
-                       "deploy" "clojars," "commit" "New release," "tag,"
-                       "to-snapshot," "commit" "New snapshot," "push"]})
+                       #_["deploy" "clojars," "commit" "New release," "tag,"]
+                       "to-snapshot," "pprint" #_["commit" "New snapshot," "push"]]})

@@ -11,10 +11,9 @@ Each comma-separated group should be a task name followed by optional arguments.
 
 USAGE: lein xdo test, compile :all, deploy private-repo"
   [project & args]
-  (doto
-      ^:boxed-result
-    (zipmap [:project :result]
-            (reduce (fn [[project] arg-group] (->> (resolve-and-apply project arg-group)
-                                                   (prj-result project)))
-                    [project] (group-args args)))
-    (println "xdo")))
+  (with-meta (zipmap [:project :result]
+                     (reduce (fn [[project] arg-group]
+                               (->> (resolve-and-apply project arg-group)
+                                    (prj-result project)))
+                             [project] (group-args args)))
+    {:boxed-result true}))
