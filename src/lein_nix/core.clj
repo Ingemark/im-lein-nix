@@ -23,3 +23,17 @@
                (apply assoc opt-map (read-string k)
                       (if (keywordable? v) [true, (read-string v) true] [v])))
              {} (partition-all 2 opts))]))
+
+(defn prj-result [project r] (if (-> r meta :boxed-result)
+                               ((juxt :project :result) r)
+                               [project r]))
+
+(defn ungroup [groups]
+  (-> (for [g (drop-last groups)
+            :let [g (update-in g [(dec (count g))] #(str % ","))]
+            arg g] arg)
+      (concat (last groups))))
+
+(defn higher-order? [project args] (-> args first
+                                       (resolve-task (constantly nil))
+                                       meta :higher-order))

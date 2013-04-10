@@ -1,7 +1,7 @@
 (ns leiningen.thrush
   (:require [leiningen.core.main :refer [resolve-and-apply]]
             [leiningen.do :refer [group-args]]
-            [leiningen.xdo :refer [higher-order? prj-result ungroup]]))
+            [lein-nix.core :refer [ungroup prj-result higher-order?]]))
 
 (defn ^:no-project-needed ^:higher-order thrush
   "Like ->, but for leiningen tasks.
