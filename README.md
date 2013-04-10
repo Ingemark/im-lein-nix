@@ -9,6 +9,8 @@ Put `[lein-nix "0.1.6"]` into the `:plugins` vector of your `~/.lein/profiles.cl
 The best way to use lein-nix is by defining aliases in `project.clj`:
 ```clojure
 (defproject ...
+  :lein-bundle {:filespec ["README.md" "logback.xml"
+                           ["config.clj.template" "config.clj"]]}
   :aliases {"to-release-version" ["thrush" "version-update" ":release," "edit-version"]
             "to-snapshot" ["thrush" "version-update" ":new-snapshot," "edit-version"]
             "release" ["xdo" "git-check-clean," "to-release-version,"
