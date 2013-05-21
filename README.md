@@ -19,7 +19,7 @@ The best way to use lein-nix is by defining aliases in `project.clj`:
             "upload-bundle" ["thrush" "uberjar," "bundle" ".," "upload" "bundle"]
             "publish-latest" ["with-checkout" ":latest" "upload-bundle"]})
 ```
-NOTE: `lein-nix` requires a still-unreleased version of Leiningen (it works against the current state of its `master` branch).
+NOTE: `lein-nix` works with Leiningen 2.1.3 and above.
 
 ## License
 
