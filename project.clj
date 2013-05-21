@@ -9,4 +9,5 @@
    "to-snapshot" ["thrush" "version-update" ":new-snapshot," "edit-version"]
    "release" ["xdo" "git-check-clean," "to-release-version," "deploy" "clojars,"
               "commit" "New release," "tag," "to-snapshot,"
-              "commit" "New snapshot," "push"]})
+              "commit" "New snapshot," "push"]}
+  :dependencies [[org.apache.ant/ant "1.9.0"]])
