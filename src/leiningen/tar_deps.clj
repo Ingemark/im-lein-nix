@@ -30,4 +30,5 @@
                         TarOutputStream.)]
       (.setLongFileMode tar TarOutputStream/LONGFILE_GNU)
       (doseq [j (deps-for project)] (add-file tar j))
-      (println "Wrote" (.getName tar-file)))))
+      (println "Wrote" (.getName tar-file))
+      (.getPath tar-file))))
