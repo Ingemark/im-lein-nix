@@ -3,5 +3,7 @@
 
 (defn print-args [project & args]
   (println "args" args)
-  (println "project.clj")
-  (pprint project))
+  (println "project")
+  (pprint project)
+  (println "\n\nproject meta")
+  (pprint (update-in (meta project) [:profiles] dissoc :leiningen/test)))
