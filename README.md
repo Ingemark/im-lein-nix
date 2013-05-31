@@ -33,7 +33,7 @@ The following example demonstrates the usage of `into-meta`, `using-meta`, and `
 (defproject ...
   :aliases
   {"bundle-jar" ["thrush" "jar," "into-meta" ":bundle-args" "main.jar"]
-   "bundle-deps" ["thrush" "tar-deps," "into-meta" ":bundle-args" "deps.jar"]
+   "bundle-deps" ["thrush" "tar-deps," "into-meta" ":bundle-args" "deps.tgz"]
    "bundle" ["xdo" "bundle-jar," "bundle-deps," "using-meta" ":bundle-args" "bundle"]})
 ```
 

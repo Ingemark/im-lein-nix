@@ -23,7 +23,7 @@
 (defn tar-deps [project]
   (let [tar-file
         (doto (io/file (:root project) "target"
-                       (apply format "%s-%s-dependencies.tar.gz"
+                       (apply format "%s-%s-dependencies.tgz"
                               ((juxt :name :version) project)))
           io/make-parents)]
     (with-open [tar (-> tar-file FileOutputStream. GZIPOutputStream.
