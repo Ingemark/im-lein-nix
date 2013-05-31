@@ -1,8 +1,8 @@
 (ns leiningen.into-meta)
 
-(defn into-meta [project value key]
+(defn into-meta [project value key & more-values]
   (let [key (if (.startsWith key ":") (read-string key) key)
-        value (if (map? value) (first (vals value)) value)]
+        values (map #(if (map? %) (first (vals %)) %) (concat [value] more-values))]
     ^:boxed-result
-    {:project (vary-meta project update-in [key] (fnil conj []) value)
+    {:project (vary-meta project update-in [key] apply (fnil conj []) values)
      :result value}))
