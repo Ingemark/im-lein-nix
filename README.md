@@ -4,7 +4,7 @@ A leiningen plugin that contributes an arsenal of composable, *small-is-beautifu
 
 ## Usage
 
-Put `[lein-nix "0.1.10"]` into the `:plugins` vector of your `~/.lein/profiles.clj` or `project.clj`.
+Put `[lein-nix "0.1.11"]` into the `:plugins` vector of your `~/.lein/profiles.clj` or `project.clj`.
 
 The best way to use lein-nix is by defining aliases in `project.clj`. The following example demonstrates the usage of most of the tasks:
 
@@ -14,14 +14,14 @@ The best way to use lein-nix is by defining aliases in `project.clj`. The follow
                            ["config.clj.template" "config.clj"]]}
   :aliases
   {"release" ["xdo"
-              "git-check-clean"
-              ["thrush" ["version-update" ":release"] "edit-version"]
+              ["git-check-clean"]
+              ["thrush" ["version-update" ":release"] ["edit-version"]]
               ["deploy" "clojars"]
               ["commit" "New release"]
-              "tag"
-              ["thrush" ["version-update" ":new-snapshot"] "edit-version"]
+              ["tag"]
+              ["thrush" ["version-update" ":new-snapshot"] ["edit-version"]]
               ["commit" "New snapshot"]
-              "push"]
+              ["push"]]
      "publish-latest" ["with-checkout" ":latest"
                        "thrush" "uberjar," "bundle" ".," "upload" "bundle"]}
 ```
@@ -37,8 +37,8 @@ The following example demonstrates the usage of `into-meta`, `using-meta`, and `
 ```clojure
 (defproject ...
   :aliases
-  {"bundle" ["xdo" ["thrush" "jar" ["into-meta" ":bundle-args" "main.jar"]]
-                   ["thrush" "tar-deps" ["into-meta" ":bundle-args" "deps.tgz"]]
+  {"bundle" ["xdo" ["thrush" ["jar"] ["into-meta" ":bundle-args" "main.jar"]]
+                   ["thrush" ["tar-deps"] ["into-meta" ":bundle-args" "deps.tgz"]]
                    ["using-meta" ":bundle-args" "bundle"]]})
 ```
 
@@ -46,6 +46,10 @@ The following example demonstrates the usage of `into-meta`, `using-meta`, and `
 
 
 ##RELEASE NOTES
+
+0.1.11
+
+Fixed and documented `into-meta` and `using-meta`.
 
 0.1.10
 
