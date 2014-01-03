@@ -7,8 +7,11 @@
 (set! *warn-on-reflection* true)
 
 (defn with-checkout
-  "Check out a revision from git and apply tasks on it"
-  [project tag & args]
+  "Check out a revision from git and apply tasks on it
+
+Note: this task constructs a command line and executes it in a subprocess.
+Therefore it does not support vectors in cmdline (as supported by the do task)"
+  [project tag & cmdline]
   (let [checkout-dir "target/lein-with-checkout"
         tag (if (= tag ":latest")
               (let [r (sh/sh "git" "describe" "--tags" "--abbrev=0")]
@@ -22,5 +25,5 @@
       (sh! "sh" "-c" (format "git archive %s | tar -xC %s" tag checkout-dir))
       (sh! "sh" "-c"
            (format "cd %s ; %s %s" checkout-dir
-                   (System/getProperty "leiningen.script") (s/join " " args)))
+                   (System/getProperty "leiningen.script") (s/join " " cmdline)))
       (finally (sh! "rm" "-rf" checkout-dir)))))
