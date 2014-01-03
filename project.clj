@@ -7,6 +7,7 @@
   :aliases
   {"release" ["xdo"
               ["git-check-clean"]
+              ["clean"]
               ["thrush" ["version-update" ":release"] ["edit-version"]]
               ["deploy" "clojars"]
               ["commit" "New release"]
