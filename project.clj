@@ -6,12 +6,12 @@
   :eval-in :leiningen
   :aliases
   {"release" ["xdo"
-              "git-check-clean"
-              ["thrush" ["version-update" ":release"] "edit-version"]
+              ["git-check-clean"]
+              ["thrush" ["version-update" ":release"] ["edit-version"]]
               ["deploy" "clojars"]
               ["commit" "New release"]
-              "tag"
-              ["thrush" ["version-update" ":new-snapshot"] "edit-version"]
+              ["tag"]
+              ["thrush" ["version-update" ":new-snapshot"] ["edit-version"]]
               ["commit" "New snapshot"]
-              "push"]}
+              ["push"]]}
   :dependencies [[org.apache.ant/ant "1.9.0"]])
