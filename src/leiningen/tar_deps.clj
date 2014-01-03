@@ -20,7 +20,16 @@
     (when-not (.isDirectory f) (io/copy f tar))
     (.closeEntry tar)))
 
-(defn tar-deps [project]
+(defn tar-deps
+  "Archive all project dependencies into a tarfile
+
+Creates a tar archive containing all JAR dependencies of the project.
+The file will be called target/<name>-<version>-dependencies.tgz
+
+This can be a useful alternative to bundling the project as an uberjar. All 
+changes to just the project source code, not involving a change in 
+dependencies, can be deployed by redistributing just the main JAR file."
+  [project]
   (let [tar-file
         (doto (io/file (:root project) "target"
                        (apply format "%s-%s-dependencies.tgz"
