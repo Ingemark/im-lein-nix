@@ -4,7 +4,7 @@ A leiningen plugin that contributes an arsenal of composable, *small-is-beautifu
 
 ## Usage
 
-Put `[lein-nix "0.1.11"]` into the `:plugins` vector of your `~/.lein/profiles.clj` or `project.clj`.
+Put `[lein-nix "0.1.12"]` into the `:plugins` vector of your `~/.lein/profiles.clj` or `project.clj`.
 
 The best way to use lein-nix is by defining aliases in `project.clj`. The following example demonstrates the usage of most of the tasks:
 
@@ -46,6 +46,10 @@ The following example demonstrates the usage of `into-meta`, `using-meta`, and `
 
 
 ##RELEASE NOTES
+
+0.1.12
+
+Version 0.1.11 was an invalid build, this fixes it.
 
 0.1.11
 
