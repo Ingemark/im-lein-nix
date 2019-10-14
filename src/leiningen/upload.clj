@@ -1,14 +1,14 @@
 (ns leiningen.upload
-  (require [lein-nix.core :refer [abort sh!]]
-           (leiningen [deploy :refer [repo-for]])
-           [leiningen.core.main :as main]
-           (clojure.java [shell :as sh] [io :as io])
-           [clojure.string :as s]
-           [cemerick.pomegranate.aether :as aether])
-  (import cemerick.pomegranate.aether.PomegranateWagonProvider
-          org.apache.maven.wagon.Wagon
-          org.apache.maven.wagon.repository.Repository
-          org.apache.maven.wagon.authentication.AuthenticationInfo))
+  (:require [lein-nix.core :refer [abort sh!]]
+            (leiningen [deploy :refer [repo-for]])
+            [leiningen.core.main :as main]
+            (clojure.java [shell :as sh] [io :as io])
+            [clojure.string :as s]
+            [cemerick.pomegranate.aether :as aether])
+  (:import cemerick.pomegranate.aether.PomegranateWagonProvider
+           org.apache.maven.wagon.Wagon
+           org.apache.maven.wagon.repository.Repository
+           org.apache.maven.wagon.authentication.AuthenticationInfo))
 
 (set! *warn-on-reflection* true)
 

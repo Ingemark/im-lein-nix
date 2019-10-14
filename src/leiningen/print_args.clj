@@ -1,5 +1,5 @@
 (ns leiningen.print-args
-  (use clojure.pprint))
+  (:require [clojure.pprint :refer :all]))
 
 (defn print-args 
   "A diagnostic task which prints all its arguments"

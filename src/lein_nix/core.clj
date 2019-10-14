@@ -1,5 +1,5 @@
 (ns lein-nix.core
-  (require (leiningen.core [eval :as eval] [main :as main])))
+  (:require (leiningen.core [eval :as eval] [main :as main])))
 
 (defn abort [fmt & args] (main/abort (apply format fmt args)))
 

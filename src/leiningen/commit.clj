@@ -1,5 +1,5 @@
 (ns leiningen.commit
-  (require [lein-nix.core :refer [sh!]]))
+  (:require [lein-nix.core :refer [sh!]]))
 
 (defn commit
 "Commits all changed files to git.

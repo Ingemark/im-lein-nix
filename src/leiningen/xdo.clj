@@ -1,6 +1,5 @@
 (ns leiningen.xdo
-  (:require [leiningen.core.main
-             :refer [resolve-task task-args resolve-and-apply]]
+  (:require [leiningen.core.main :refer [resolve-task task-args resolve-and-apply]]
             [leiningen.do :refer [group-args]]
             [lein-nix.core :refer [prj-result]]))
 

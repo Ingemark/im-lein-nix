@@ -1,5 +1,5 @@
 (ns leiningen.using-meta
-  (require [leiningen.core.main :as main]))
+  (:require [leiningen.core.main :as main]))
 
 (defn ^:higher-order using-meta
   "Invoke a task using project map's metadata

@@ -1,5 +1,5 @@
 (ns leiningen.tag
-  (require [lein-nix.core :refer [sh!]]))
+  (:require [lein-nix.core :refer [sh!]]))
 
 (defn tag
 "Tags the HEAD commit with the project name and version."

@@ -1,5 +1,5 @@
 (ns leiningen.git-check-clean
-  (require [clojure.java.shell :as sh]
+  (:require [clojure.java.shell :as sh]
            [leiningen.core.main :as main]))
 
 (defn git-check-clean

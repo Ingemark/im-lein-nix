@@ -1,11 +1,11 @@
 (ns leiningen.tar-deps
-  (require (leiningen.core [classpath :as classpath]
-                           [project :as project])
-           [leiningen.jar :as jar]
-           [clojure.java.io :as io])
-  (import (org.apache.tools.tar TarEntry TarOutputStream)
-          java.io.FileOutputStream
-          java.util.zip.GZIPOutputStream))
+  (:require (leiningen.core [classpath :as classpath]
+                            [project :as project])
+            [leiningen.jar :as jar]
+            [clojure.java.io :as io])
+  (:import (org.apache.tools.tar TarEntry TarOutputStream)
+           java.io.FileOutputStream
+           java.util.zip.GZIPOutputStream))
 
 (defn deps-for [project]
   (->> (classpath/resolve-dependencies

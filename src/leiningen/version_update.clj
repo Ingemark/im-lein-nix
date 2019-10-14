@@ -1,5 +1,5 @@
 (ns leiningen.version-update
-  (require [clojure.string :as s]))
+  (:require [clojure.string :as s]))
 
 (defn ->release [v] (s/replace v #"-SNAPSHOT$" ""))
 

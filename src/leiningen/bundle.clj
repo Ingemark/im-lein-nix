@@ -1,7 +1,7 @@
 (ns leiningen.bundle
-  (require [lein-nix.core :refer [sh! parse-opts abort]]
-           [clojure.java.io :as io])
-  (import java.io.File))
+  (:require [lein-nix.core :refer [sh! parse-opts abort]]
+            [clojure.java.io :as io])
+  (:import java.io.File))
 
 (set! *warn-on-reflection* true)
 

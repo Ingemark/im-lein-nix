@@ -1,8 +1,8 @@
 (ns leiningen.with-checkout
-  (require [lein-nix.core :refer [sh! abort]]
-           (leiningen.core [main :as main] [eval :as eval])
-           (clojure.java [shell :as sh] [io :as io])
-           [clojure.string :as s]))
+  (:require [lein-nix.core :refer [sh! abort]]
+            (leiningen.core [main :as main] [eval :as eval])
+            (clojure.java [shell :as sh] [io :as io])
+            [clojure.string :as s]))
 
 (set! *warn-on-reflection* true)
 
