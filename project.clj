@@ -1,4 +1,4 @@
-(defproject im-lein-nix "0.1.13-SNAPSHOT"
+(defproject im-lein-nix "0.1.13"
   :description "An arsenal of composable bundling/deployment tasks"
   :url "https://github.com/Ingemark/im-lein-nix"
   :license {:name "Eclipse Public License"
