@@ -1,6 +1,6 @@
-(defproject lein-nix "0.1.13-SNAPSHOT"
+(defproject im-lein-nix "0.1.13-SNAPSHOT"
   :description "An arsenal of composable bundling/deployment tasks"
-  :url "https://github.com/Inge-mark/lein-nix"
+  :url "https://github.com/Ingemark/im-lein-nix"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :eval-in :leiningen
